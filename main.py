@@ -13,19 +13,6 @@ cObj=con.cursor()
 cObj.execute("CREATE TABLE IF NOT EXISTS coin(id INTEGER PRIMARY KEY,symbol TEXT,amount owend INTEGER,price REAl)")
 con.commit()
 
-#cObj.execute("INSERT INTO coin values(1,'BTC',2,3500)")
-#con.commit()
-#cObj.execute("INSERT INTO coin values(2,'ETH',10,20)")
-#con.commit()
-#cObj.execute("INSERT INTO coin values(3,'LTC',7,25.09)")
-#con.commit()
-#cObj.execute("INSERT INTO coin values(4,'XMR',10,48.05)")
-#con.commit()
-#def font_colour(amount):
-#    if amount>=0:
-#      return "green"
-#    else:
-#       return "red"
 def reset():
     for cell in pycrypto.winfo_children():
         cell.destroy()
@@ -61,28 +48,7 @@ def my_portfolio():
         con.commit()
         messagebox.showinfo("Portfolio Notification","Coin Deleted From Portfolio")
         reset()
-    #coins = [
-       # {
-            #"symbol":"BTC",
-            #"amount_owend":2,
-            #"price_per_coin":35
-        #},
-        #{
-            #"symbol":"ETH",
-            #"amount_owend":10,
-            #"price_per_coin":20
-        #},
-        #{
-        #    "symbol":"LTC",
-        #    "amount_owend":7,
-        #    "price_per_coin":25.09
-        #},
-        #{
-        #    "symbol":"XMR",
-         #   "amount_owend":10,
-        #    "price_per_coin":48.05
-        #}
-    #]
+   
     total_pl = 0 
     row_coin = 1  
     total_current_value = 0
@@ -101,11 +67,7 @@ def my_portfolio():
                 ##print(api["data"][i]["name"] + "-" + api["data"][i]["symbol"])
                 ##print("price-${0:.2f}".format(api["data"][i]["quote"]["USD"]["price"]))
                 ##print("Number of coin:",coin[2])
-                ##print("Total amount paid:","${0:.2f}".format(total_paid))
-                ##print("current_value:","${0:.2f}".format(current_value))
-                ##print("P/L Per Coin:","${0:.2f}".format(pl_percoin))
-                ##print("Total P/L With Coin:","${0:2f}".format(total_pl_coin))
-                ##print("------------")
+               
                 portfolio_id= Label(pycrypto,text = coin[0],bg="#F3F4F6",fg="black")
                 portfolio_id.grid(row=row_coin,column=0,sticky=S+W)
                 name = Label(pycrypto,text = api["data"][i]["symbol"],bg="#F3F4F6",fg="black")
